@@ -48,10 +48,10 @@ public class BBQChicken extends Pizza {
 
     /**
      * This method is override from Customizable interface.
-     * It is used when
+     * It is used when removing a topping from one pizza.
      *
      * @param obj The Topping that are going to be removed.
-     * @return
+     * @return true if successfully removed, false otherwise.
      */
     @Override
     public boolean remove(Object obj) {
@@ -66,6 +66,11 @@ public class BBQChicken extends Pizza {
         return false;
     }
 
+    /**
+     * Get the price of BBQChicken Flavor pizza. Different size has different prices
+     *
+     * @return The double type value of price of BBQ chicken Pizza.
+     */
     @Override
     public double price() {
         if (this.getSize() == Size.SMALL) {
