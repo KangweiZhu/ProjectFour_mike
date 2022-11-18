@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.MainController">
+   <children>
+      <Pane fx:id="mainPane" layoutY="2.0" prefHeight="600.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="610.0" fitWidth="600.0" layoutY="-7.0" pickOnBounds="true">
+               <image>
+                  <Image url="@Photos/pizza-menu-background.jpg" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="249.0" layoutY="30.0" prefHeight="63.0" prefWidth="224.0" text="RU PIZZA" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="System Bold Italic" size="40.0" />
+               </font>
+            </Label>
+            <Pane layoutX="100.0" layoutY="153.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#chicagostyleClicked" pickOnBounds="true">
+                     <image>
+                        <Image url="@Photos/ChicagoStyle-pizza.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutY="142.0" prefHeight="51.0" prefWidth="200.0" text="Chicago Style" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="300.0" layoutY="153.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#newyorkstyleClicked" pickOnBounds="true">
+                     <image>
+                        <Image url="@Photos/New-York-Style-pizza.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutY="142.0" prefHeight="51.0" prefWidth="200.0" text="New York Style" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="100.0" layoutY="353.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#storeordersClicked" pickOnBounds="true">
+                     <image>
+                        <Image url="@Photos/CurrentOrder.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutY="142.0" prefHeight="51.0" prefWidth="200.0" text="Store Oders" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="300.0" layoutY="353.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#currentorderClicked" pickOnBounds="true">
+                     <image>
+                        <Image url="@Photos/StoreOrders.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutY="142.0" prefHeight="51.0" prefWidth="200.0" text="Current Order" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children></Pane>
+   </children>
+</AnchorPane>
