@@ -2,8 +2,23 @@ package com.example.project4;
 
 import java.util.ArrayList;
 
-public class ChicagoPizza implements PizzaFactory{
+/**
+ * This class implements methods from PizzaFactory interface, and will create different flavor of pizza
+ *
+ * @author: Michael Israel, Kangwei Zhu
+ */
+public class ChicagoPizza implements PizzaFactory {
+    /**
+     * Default Constructor of ChicagoPizza class.
+     */
+    public ChicagoPizza() {
+    }
 
+    /**
+     * This method is override from the PizzaFactory interface. It creates a deluxe flavor Chicago Pizza.
+     *
+     * @return The Deluxe flavor chicago pizza create
+     */
     @Override
     public Pizza createDeluxe() {
         ArrayList<Topping> selectedToppings = new ArrayList<Topping>();
@@ -18,6 +33,11 @@ public class ChicagoPizza implements PizzaFactory{
         return pizza;
     }
 
+    /**
+     * This method is override from the PizzaFactory interface. It creates a BBQ Chicken flavor Chicago Pizza.
+     *
+     * @return The BBQ Chicken flavor chicago pizza create
+     */
     @Override
     public Pizza createBBQChicken() {
         ArrayList<Topping> selectedToppings = new ArrayList<Topping>();
@@ -31,6 +51,11 @@ public class ChicagoPizza implements PizzaFactory{
         return pizza;
     }
 
+    /**
+     * This method is override from the PizzaFactory interface. It creates a Meatzza flavor Chicago Pizza.
+     *
+     * @return The Meatzza flavor chicago pizza create
+     */
     @Override
     public Pizza createMeatzza() {
         ArrayList<Topping> selectedToppings = new ArrayList<Topping>();
@@ -44,6 +69,11 @@ public class ChicagoPizza implements PizzaFactory{
         return pizza;
     }
 
+    /**
+     * This method is override from the PizzaFactory interface. It creates a build your own flavor Chicago Pizza.
+     *
+     * @return The build your own flavor chicago pizza create
+     */
     @Override
     public Pizza createBuildYourOwn() {
         ArrayList<Topping> selectedToppings = new ArrayList<Topping>();

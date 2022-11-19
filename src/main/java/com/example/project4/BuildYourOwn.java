@@ -27,9 +27,11 @@ public class BuildYourOwn extends Pizza {
     }
 
     /**
-     * This method overrides from
+     * This method overrides from the Customizable interface.
+     * It is used when adding a Topping into one table
+     *
      * @param obj The Topping that are going to be added.
-     * @return
+     * @return True if successfully added, otherwise false.
      */
     @Override
     public boolean add(Object obj) {
@@ -44,6 +46,13 @@ public class BuildYourOwn extends Pizza {
         return false;
     }
 
+    /**
+     * This method is override from the Customizable interface
+     * It is used when adding a Topping into one table
+     *
+     * @param obj The Topping that are going to be removed.
+     * @return True if successfully added, otherwise false.
+     */
     @Override
     public boolean remove(Object obj) {
         if (obj instanceof Topping) {
@@ -57,6 +66,12 @@ public class BuildYourOwn extends Pizza {
         return false;
     }
 
+    /**
+     * This method is override from the abstract parent Pizza class.
+     * It is used to get the price of different sizes of BuildYourOwn flavor pizza.
+     *
+     * @return The double type value of price of BuildYourOwn flavor pizza.
+     */
     @Override
     public double price() {
         if (this.getSize() == Size.SMALL) {
@@ -69,6 +84,11 @@ public class BuildYourOwn extends Pizza {
         return 0;
     }
 
+    /**
+     * Get the price of topping each additional toppings.
+     *
+     * @return The double type value of price of toppings.
+     */
     private double getPriceOfToppings() {
         return (this.getSelectedToppings().size() * 1.59);
     }

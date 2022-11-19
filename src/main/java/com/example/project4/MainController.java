@@ -7,6 +7,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * This class is the controller class for the Main-view.fxml file.
+ * It provides the service for displaying the javafx main page of this java program.
+ *
+ * @author Michael Israel, Kangwei Zhu
+ */
 public class MainController {
     @FXML
     private Pane mainPane;
@@ -19,98 +25,119 @@ public class MainController {
     private Order userOrder;
     private StoreOrder storeOrdersArrayList;
 
+    /**
+     * Default constructor of MainController class
+     */
+    public MainController() {
+    }
 
-
-    public void initialize(CurrentOrderController controller, ChicagoSPOController controller1, NewYorkSPOController controller2){
-        currentOrderController = controller;
-        if(currentOrderController != null){
+    /**
+     * This method is used for sharing datas between each view.
+     * It is called to initialize controllers after its root element has been completely processed.
+     *
+     * @param currentOrderController The controller for currentOrder view.
+     * @param chiagoSPOController    The controller for chicagoSPO view.
+     * @param newYorkSPOController   The controller for newYorkSPO view.
+     */
+    public void initialize(CurrentOrderController currentOrderController, ChicagoSPOController chiagoSPOController,
+                           NewYorkSPOController newYorkSPOController) {
+        this.currentOrderController = currentOrderController;
+        if (currentOrderController != null) {
             storeOrdersArrayList = currentOrderController.getStoreOrdersArrayList();
         }
-        chicagoSPOController = controller1;
-        newYorkSPOController = controller2;
-        if(newYorkSPOController != null){
+        this.chicagoSPOController = chicagoSPOController;
+        this.newYorkSPOController = newYorkSPOController;
+        if (newYorkSPOController != null) {
             userOrder = newYorkSPOController.getUserOrder();
-        }else if(currentOrderController != null){
+        } else if (currentOrderController != null) {
             storeOrdersArrayList = currentOrderController.getStoreOrdersArrayList();
         }
     }
 
+    /**
+     * After the chicagoStyle imageButton is clicked, it will try to jump to a new page which people can select/add
+     * ChicagoStyle pizza.
+     */
     @FXML
-    private void chicagostyleClicked(){
+    private void chicagostyleClicked() {
         try {
             FXMLLoader loader = new FXMLLoader(ChicagoSPOController.class.getResource("ChicagoSPO-view.fxml"));
             root = loader.load();
             ChicagoSPOController chicagoSPOController1 = loader.getController();
-
             chicagoSPOController1.initialize(currentOrderController, chicagoSPOController, newYorkSPOController);
-
-            stage = (Stage)mainPane.getScene().getWindow();
+            stage = (Stage) mainPane.getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Chicago Style Pizza Order");
             stage.setResizable(false);
             stage.show();
-
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * After the newYorkStyle imageButton is clicked, it will try to jump to a new page which people can select/add
+     * newYorkStyle pizza.
+     */
     @FXML
-    private void newyorkstyleClicked(){
+    private void newyorkstyleClicked() {
         try {
             FXMLLoader loader = new FXMLLoader(NewYorkSPOController.class.getResource("NewYorkSPO-view.fxml"));
             root = loader.load();
-            NewYorkSPOController newYorkSPOController1 = loader.getController();
-
-            newYorkSPOController1.initialize(currentOrderController, chicagoSPOController, newYorkSPOController);
-
-            stage = (Stage)mainPane.getScene().getWindow();
+            NewYorkSPOController newYorkSPOController = loader.getController();
+            newYorkSPOController.initialize(currentOrderController, chicagoSPOController, newYorkSPOController);
+            stage = (Stage) mainPane.getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("NewYork Style Pizza Order");
             stage.setResizable(false);
             stage.show();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    /**
+     * After the storeOrder imageButton is clicked, it will try to jump to a new page which people can check the store
+     * order.
+     */
     @FXML
-    private void storeordersClicked(){
+    private void storeordersClicked() {
         try {
             FXMLLoader loader = new FXMLLoader(CurrentOrderController.class.getResource("StoreOrders-view.fxml"));
             root = loader.load();
             StoreOrdersController storeOrdersController = loader.getController();
-
             storeOrdersController.initialize(currentOrderController, chicagoSPOController, newYorkSPOController);
-
-            stage = (Stage)mainPane.getScene().getWindow();
+            stage = (Stage) mainPane.getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Store Orders");
             stage.setResizable(false);
             stage.show();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    /**
+     * After the currentOrder imageButton is clicked, it will try to jump to a new page which people can view the
+     * current order.
+     */
     @FXML
-    private void currentorderClicked(){
+    private void currentorderClicked() {
         try {
             FXMLLoader loader = new FXMLLoader(CurrentOrderController.class.getResource("CurrentOrder-view.fxml"));
             root = loader.load();
-            CurrentOrderController currentOrderController1 = loader.getController();
-
-            currentOrderController1.initialize(currentOrderController, chicagoSPOController, newYorkSPOController);
-
-            stage = (Stage)mainPane.getScene().getWindow();
+            CurrentOrderController currentOrderController = loader.getController();
+            currentOrderController.initialize(currentOrderController, chicagoSPOController, newYorkSPOController);
+            stage = (Stage) mainPane.getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Current Order");
             stage.setResizable(false);
             stage.show();
-
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
