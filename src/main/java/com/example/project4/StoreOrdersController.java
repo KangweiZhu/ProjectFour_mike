@@ -14,6 +14,12 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
+/**
+ * The controller class for StoreOrderController view.
+ * It will provide services for viewing all the orders that this store has.
+ *
+ * @author: Michael Israel, Kangwei Zhu.
+ */
 public class StoreOrdersController {
 
     @FXML
@@ -35,28 +41,52 @@ public class StoreOrdersController {
     private Order userOrder;
     private StoreOrder storeOrdersArrayList;
 
+    /**
+     * Default constructor of StoreOrderController class.
+     */
+    public StoreOrdersController() {
+    }
 
-    public void initialize(CurrentOrderController controller, ChicagoSPOController controller1, NewYorkSPOController controller2){
-        currentOrderController = controller;
-        if(currentOrderController != null){
+    /**
+     * It is called to initialize all the controllers after the root element is loaded.
+     * It is used for sharing the data between controllers.
+     *
+     * @param currentOrderController The controller for the currentOrder View.
+     * @param chicagoSPOController   The controller for the chicagoSPO view.
+     * @param newYorkSPOController   The controller for the newYorkSPO view.
+     */
+    public void initialize(CurrentOrderController currentOrderController, ChicagoSPOController chicagoSPOController,
+                           NewYorkSPOController newYorkSPOController) {
+        this.currentOrderController = currentOrderController;
+        if (currentOrderController != null) {
             storeOrdersArrayList = currentOrderController.getStoreOrdersArrayList();
             updateComboBox();
         }
-        chicagoSPOController = controller1;
-        newYorkSPOController = controller2;
-        if(chicagoSPOController != null){
+        this.chicagoSPOController = chicagoSPOController;
+        this.newYorkSPOController = newYorkSPOController;
+        if (chicagoSPOController != null) {
             userOrder = chicagoSPOController.getUserOrder();
-        }else  if(newYorkSPOController != null){
+        } else if (newYorkSPOController != null) {
             userOrder = newYorkSPOController.getUserOrder();
         }
     }
 
-    public void transferOrders(Order order){
+    /**
+     * It will add an order to the current orderArrayList.
+     *
+     * @param order The order that are going to be added.
+     */
+    public void transferOrders(Order order) {
         storeOrdersArrayList.add(order);
     }
 
+    /**
+     * When the back button is clicked, it will go back to home screen.
+     * 
+     * @param event An event that represent some type of action.
+     */
     @FXML
-    private void goToHomeScreen(ActionEvent event){
+    private void goToHomeScreen(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(ChicagoSPOController.class.getResource("Main-view.fxml"));
             root = loader.load();
@@ -64,31 +94,34 @@ public class StoreOrdersController {
 
             mainController.initialize(currentOrderController, chicagoSPOController, newYorkSPOController);
 
-            stage = (Stage)mainPane.getScene().getWindow();
+            stage = (Stage) mainPane.getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Main");
             stage.setResizable(false);
             stage.show();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
     @FXML
-    private void selectOrderNumber(ActionEvent event){
+    private void selectOrderNumber(ActionEvent event) {
         orderNumber = orderNumberComboBox.getValue();
         setUpStoreOrderView();
     }
+
     @FXML
-    private void cancelOrder(ActionEvent event){
+    private void cancelOrder(ActionEvent event) {
         orderNumber = orderNumberComboBox.getValue();
-        if(orderNumber != null){
+        if (orderNumber != null) {
             storeOrdersArrayList.getOrdersArrayList().removeIf(order -> order.getOrderNumber() == orderNumber);
-            if(storeOrdersArrayList.getOrdersArrayList().isEmpty()){
+            if (storeOrdersArrayList.getOrdersArrayList().isEmpty()) {
                 orderNumberComboBox.getItems().removeAll(orderNumberComboBox.getItems());
                 storeOrderView.getItems().clear();
                 updateScreenTotals(null);
-            }else{
+            } else {
                 updateComboBox();
                 orderNumber = numOfOrders.get(0);
                 orderNumberComboBox.setValue(orderNumber);
@@ -96,30 +129,33 @@ public class StoreOrdersController {
             }
         }
     }
+
     @FXML
-    private void exportStoreOrders(ActionEvent event){
+    private void exportStoreOrders(ActionEvent event) {
         storeOrdersArrayList.export();
     }
 
-    private void updateScreenTotals(Integer index){
-        if(index != null){
-            orderTotalLabel.setText("$"+String.format("%.2f", storeOrdersArrayList.getOrdersArrayList().get(index).getOrderTotal()));
-        }else{
+    private void updateScreenTotals(Integer index) {
+        if (index != null) {
+            orderTotalLabel.setText("$" + String.format("%.2f", storeOrdersArrayList.getOrdersArrayList().get(index).getOrderTotal()));
+        } else {
             orderTotalLabel.setText("");
         }
     }
-    private void updateComboBox(){
+
+    private void updateComboBox() {
         numOfOrders.clear();
-        for(Order order : storeOrdersArrayList.getOrdersArrayList()){
+        for (Order order : storeOrdersArrayList.getOrdersArrayList()) {
             numOfOrders.add(order.getOrderNumber());
         }
         orderNumberComboBox.setItems(FXCollections.observableArrayList(numOfOrders));
     }
-    private void setUpStoreOrderView(){
-        if(orderNumberComboBox.getValue() != null){
+
+    private void setUpStoreOrderView() {
+        if (orderNumberComboBox.getValue() != null) {
             storeOrderView.getItems().clear();
-            for(Order order : storeOrdersArrayList.getOrdersArrayList()){
-                if(order.getOrderNumber() == orderNumber){
+            for (Order order : storeOrdersArrayList.getOrdersArrayList()) {
+                if (order.getOrderNumber() == orderNumber) {
                     storeOrderView.getItems().addAll(order.getPizzaArrayListStringed());
                     updateScreenTotals(storeOrdersArrayList.getOrdersArrayList().indexOf(order));
                 }

@@ -2,8 +2,24 @@ package com.example.project4;
 
 import java.util.ArrayList;
 
+/**
+ * This class follows the abstract factory design pattern. It implements all the method from PizzaFactory interface.
+ * It will create different flavors pizza.
+ *
+ * @author: Michael Israel, Kangwei Zhu
+ */
 public class NewYorkPizza implements PizzaFactory {
+    /**
+     * Default constructor of NewYorkPizza class.
+     */
+    public NewYorkPizza() {
+    }
 
+    /**
+     * This method is override from the PizzaFactory interface. It will set up basic attributes of a Deluxe flavor pizza.
+     *
+     * @return The Pizza type deluxe flavor pizza.
+     */
     @Override
     public Pizza createDeluxe() {
         ArrayList<Topping> selectedToppings = new ArrayList<Topping>();
@@ -18,6 +34,12 @@ public class NewYorkPizza implements PizzaFactory {
         return pizza;
     }
 
+    /**
+     * This method is override from the PizzaFactory interface. It will set up basic attributes of a BBQChicken
+     * flavor pizza.
+     *
+     * @return The Pizza type BBQChicken flavor pizza.
+     */
     @Override
     public Pizza createBBQChicken() {
         ArrayList<Topping> selectedToppings = new ArrayList<Topping>();
@@ -31,6 +53,12 @@ public class NewYorkPizza implements PizzaFactory {
         return pizza;
     }
 
+    /**
+     * This method is override from the PizzaFactory interface. It will set up basic attributes of a Meatzza flavor
+     * pizza.
+     *
+     * @return The Pizza type Meatzza flavor pizza.
+     */
     @Override
     public Pizza createMeatzza() {
         ArrayList<Topping> selectedToppings = new ArrayList<Topping>();
@@ -44,6 +72,12 @@ public class NewYorkPizza implements PizzaFactory {
         return pizza;
     }
 
+    /**
+     * This method is override from the PizzaFactory interface. It will set up basic attributes of a BuildYourOwn
+     * flavor pizza.
+     *
+     * @return The Pizza type BuildYourOwn flavor pizza.
+     */
     @Override
     public Pizza createBuildYourOwn() {
         ArrayList<Topping> selectedToppings = new ArrayList<Topping>();

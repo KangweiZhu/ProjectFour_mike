@@ -5,51 +5,90 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * This class represent the real life orders that a pizza restaurant database stores.
+ *
+ * @author: Michael Israel, Kangwei Zhu
+ */
 public class StoreOrder implements Customizable {
 
     private ArrayList<Order> ordersArrayList;
 
+    /**
+     * Default constructor.
+     * It initializes the orderArrayList.
+     */
     public StoreOrder() {
         this.ordersArrayList = new ArrayList<>();
     }
 
+    /**
+     * Parameterized constructor.
+     * It will set the orderArrayList to the orderArrayList in the parameter.
+     *
+     * @param ordersArrayList The ordersArrayList that is going to be set.
+     */
     public StoreOrder(ArrayList<Order> ordersArrayList) {
         this.ordersArrayList = ordersArrayList;
     }
 
+    /**
+     * This method is override from the Customizable interface.
+     * It will add an order to the current ordersArrayList.
+     *
+     * @param obj The Thing that are going to be added.
+     * @return True if successfully added, otherwise false.
+     */
     @Override
     public boolean add(Object obj) {
-        if(obj instanceof Order){
+        if (obj instanceof Order) {
             return this.ordersArrayList.add((Order) obj);
-        }else{
+        } else {
             return false;
         }
     }
 
+    /**
+     * This method is override from the Customizable interface.
+     * It will remove an order from current ordersArrayList.
+     *
+     * @param obj The things that are going to be removed.
+     * @return True if successfully removed, false otherwise.
+     */
     @Override
     public boolean remove(Object obj) {
-        if(obj instanceof Order){
+        if (obj instanceof Order) {
             return this.ordersArrayList.remove((Order) obj);
-        }else{
+        } else {
             return false;
         }
     }
+
+    /**
+     * Get the current ordersArrayList.
+     *
+     * @return The current orderArrayList.
+     */
     public ArrayList<Order> getOrdersArrayList() {
         return ordersArrayList;
     }
-    public void export(){
-        try{
+
+    /**
+     * It will export the current orderArrayList into a text file name exportedStoreOrders.txt
+     */
+    public void export() {
+        try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("exportedStoreOrders.txt"));
             writer.write("Store Orders\n\n");
-            for(Order order : this.ordersArrayList){
-                writer.write("\nOrder Number : "+order.getOrderNumber()+"\n");
-                for(String string : order.getPizzaArrayListStringed()){
+            for (Order order : this.ordersArrayList) {
+                writer.write("\nOrder Number : " + order.getOrderNumber() + "\n");
+                for (String string : order.getPizzaArrayListStringed()) {
                     writer.write(string);
                 }
                 writer.write("\n");
             }
             writer.close();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

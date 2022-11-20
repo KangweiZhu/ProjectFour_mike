@@ -201,8 +201,9 @@ public class ChicagoSPOController {
     }
 
     /**
-     * This method represents
-     * @param event
+     * This method shows the price of medium size pizza.
+     *
+     * @param event An event that represent some type of action.
      */
     @FXML
     private void mediumPizza(ActionEvent event) {
@@ -212,6 +213,11 @@ public class ChicagoSPOController {
         }
     }
 
+    /**
+     * This method shows the price of large size pizza.
+     *
+     * @param event An event that represent some type of action.
+     */
     @FXML
     private void largePizza(ActionEvent event) {
         if (pizza != null) {
@@ -220,6 +226,11 @@ public class ChicagoSPOController {
         }
     }
 
+    /**
+     * This method provides the service that add the selected pizza into the cart.
+     *
+     * @param event An event that represent some type of action.
+     */
     @FXML
     private void addToOrder(ActionEvent event) {
         if (pizza != null) {
@@ -245,10 +256,20 @@ public class ChicagoSPOController {
         }
     }
 
+    /**
+     * Get the user's order.
+     *
+     * @return Order type userOrder.
+     */
     public Order getUserOrder() {
         return userOrder;
     }
 
+    /**
+     * Setting up the image of each selected flavor pizza and display pizza's basic info on the page.
+     *
+     * @param pizza The pizza that is selected.
+     */
     private void instantiateFlavorChosen(Pizza pizza) {
         if (pizza instanceof Deluxe) {
             imageView.setImage(new Image(ChicagoSPOController.class.getResource("Photos/csDELUXE.jpg").
@@ -266,9 +287,7 @@ public class ChicagoSPOController {
                     toString());
             imageView.setImage(buildYOImage);
         }
-
         crustType.setText(pizza.getCrust().getCrustText());
-
         for (Topping topping : pizza.getAvailableToppings()) {
             availableToppings.getItems().addAll(topping.getToppingText());
         }
@@ -277,15 +296,30 @@ public class ChicagoSPOController {
         }
     }
 
+    /**
+     * This method prints the price of pizza.
+     */
     private void printPizzaPrice() {
         pizzaPrice.setText("$" + String.format("%.2f", pizza.price()));
     }
 
+    /**
+     * Get the name of the topping.
+     *
+     * @param topping The Topping that we want to know its name.
+     * @return The String type name of that topping.
+     */
     private Topping getToppingName(String topping) {
         topping = topping.replaceAll("\\s", "").toUpperCase();
         return Topping.valueOf(topping);
     }
 
+    /**
+     * Get the detail about the pizza.
+     *
+     * @param pizza The pizza that we want to know its detail.
+     * @return The String type info about that pizza.
+     */
     private String getPizzaInfo(Pizza pizza) {
         String listViewText = "";
         if (pizza instanceof Deluxe) {
@@ -297,14 +331,11 @@ public class ChicagoSPOController {
         } else if (pizza instanceof BuildYourOwn) {
             listViewText += ("Build Your Own (Chicago Style - " + pizza.getCrust().getCrustText() + "), ");
         }
-
         for (Topping topping : pizza.getSelectedToppings()) {
             listViewText += (topping.getToppingText() + (", "));
         }
-
         listViewText += (pizza.getSize().getSizeText() + (" "));
         listViewText += ("$" + pizza.price());
-
         return listViewText;
     }
 

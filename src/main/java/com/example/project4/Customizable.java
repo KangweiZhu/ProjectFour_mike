@@ -7,17 +7,17 @@ package com.example.project4;
  */
 public interface Customizable {
     /**
-     * This method is for adding a topping to a pizza.
+     * This method is for adding one thing into one ArrayList/array.
      *
-     * @param obj The Topping that are going to be added.
+     * @param obj The thing that are going to be added.
      * @return true if successfully added, otherwise false.
      */
     boolean add(Object obj);
 
     /**
-     * This method is for removing a topping from a pizza.
+     * This method is for removing one thing from one ArrayList/array.
      *
-     * @param obj The Topping that are going to be removed.
+     * @param obj The things that are going to be removed.
      * @return true if successfully removed, otherwise false.
      */
     boolean remove(Object obj);
