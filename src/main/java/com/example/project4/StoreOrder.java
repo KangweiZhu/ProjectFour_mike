@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * This class represent the real life orders that a pizza restaurant database stores.
  *
- * @author: Michael Israel, Kangwei Zhu
+ * @author Michael Israel, Kangwei Zhu
  */
 public class StoreOrder implements Customizable {
 

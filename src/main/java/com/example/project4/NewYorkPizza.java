@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * This class follows the abstract factory design pattern. It implements all the method from PizzaFactory interface.
  * It will create different flavors pizza.
  *
- * @author: Michael Israel, Kangwei Zhu
+ * @author Michael Israel, Kangwei Zhu
  */
 public class NewYorkPizza implements PizzaFactory {
     /**

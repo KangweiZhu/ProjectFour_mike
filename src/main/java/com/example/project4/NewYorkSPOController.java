@@ -18,8 +18,7 @@ import javafx.stage.Stage;
  * @author Michael Israel, Kangwei Zhu.
  */
 public class NewYorkSPOController {
-
-    private final Integer maxToppings = 7;
+    private final Integer MAXTOPPINGS = 7;
     @FXML
     private Pane mainPane;
     @FXML
@@ -159,7 +158,7 @@ public class NewYorkSPOController {
     private void addTopping(ActionEvent event) {
         String topping = availableToppings.getSelectionModel().getSelectedItem();
         if (topping != null) {
-            if (selectedToppings.getItems().size() < maxToppings) {
+            if (selectedToppings.getItems().size() < MAXTOPPINGS) {
                 selectedToppings.getItems().add(topping);
                 availableToppings.getItems().remove(topping);
                 pizza.add(getToppingName(topping));

@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  * This class is the controller class for the ChicagoSPO-view.fxml.
  * It provides the services that buy or add a Chicago Style pizza into the cart.
  *
- * @author: Michael Israel, Kangwei Zhu
+ * @author Michael Israel, Kangwei Zhu
  */
 public class ChicagoSPOController {
     private final Integer MAXTOPPINGS = 7;

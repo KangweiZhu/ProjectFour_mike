@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * This class implements methods from PizzaFactory interface, and will create different flavor of pizza
  *
- * @author: Michael Israel, Kangwei Zhu
+ * @author Michael Israel, Kangwei Zhu
  */
 public class ChicagoPizza implements PizzaFactory {
     /**

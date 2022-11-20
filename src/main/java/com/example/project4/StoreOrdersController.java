@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * The controller class for StoreOrderController view.
  * It will provide services for viewing all the orders that this store has.
  *
- * @author: Michael Israel, Kangwei Zhu.
+ * @author Michael Israel, Kangwei Zhu.
  */
 public class StoreOrdersController {
 
@@ -82,7 +82,7 @@ public class StoreOrdersController {
 
     /**
      * When the back button is clicked, it will go back to home screen.
-     * 
+     *
      * @param event An event that represent some type of action.
      */
     @FXML
@@ -105,13 +105,22 @@ public class StoreOrdersController {
         }
     }
 
-
+    /**
+     * Provide services when clicking the checkBox to view the orders.
+     *
+     * @param event An event that represent some type of action.
+     */
     @FXML
     private void selectOrderNumber(ActionEvent event) {
         orderNumber = orderNumberComboBox.getValue();
         setUpStoreOrderView();
     }
 
+    /**
+     * Provide services for cancel(remove) one order.
+     *
+     * @param event An event that represent some type of action.
+     */
     @FXML
     private void cancelOrder(ActionEvent event) {
         orderNumber = orderNumberComboBox.getValue();
@@ -130,11 +139,21 @@ public class StoreOrdersController {
         }
     }
 
+    /**
+     * Provide services for exporting the storeOrders into a textFile.
+     *
+     * @param event An event that represent some type of action.
+     */
     @FXML
     private void exportStoreOrders(ActionEvent event) {
         storeOrdersArrayList.export();
     }
 
+    /**
+     * Provides the service for displaying the total orders.
+     *
+     * @param index The total number that going to be updated.
+     */
     private void updateScreenTotals(Integer index) {
         if (index != null) {
             orderTotalLabel.setText("$" + String.format("%.2f", storeOrdersArrayList.getOrdersArrayList().get(index).getOrderTotal()));
@@ -143,6 +162,9 @@ public class StoreOrdersController {
         }
     }
 
+    /**
+     * Provide services for update the comboBox.
+     */
     private void updateComboBox() {
         numOfOrders.clear();
         for (Order order : storeOrdersArrayList.getOrdersArrayList()) {
@@ -151,6 +173,9 @@ public class StoreOrdersController {
         orderNumberComboBox.setItems(FXCollections.observableArrayList(numOfOrders));
     }
 
+    /**
+     * Provide services for setting up storeOrder view.
+     */
     private void setUpStoreOrderView() {
         if (orderNumberComboBox.getValue() != null) {
             storeOrderView.getItems().clear();
