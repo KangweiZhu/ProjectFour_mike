@@ -61,20 +61,20 @@ public class CurrentOrderController {
     public void initialize(CurrentOrderController currentOrderController, ChicagoSPOController chicagoSPOController,
                            NewYorkSPOController newYorkSPOController) {
         this.currentOrderController = currentOrderController;
-        if (currentOrderController != null) {
+        if (this.currentOrderController != null) {
             storeOrdersArrayList = currentOrderController.getStoreOrdersArrayList();
         } else {
             storeOrdersArrayList = new StoreOrder();
         }
         this.chicagoSPOController = chicagoSPOController;
         this.newYorkSPOController = newYorkSPOController;
-        if (newYorkSPOController != null) {
+        if (this.newYorkSPOController != null) {
             userOrder = newYorkSPOController.getUserOrder();
             if (userOrder != null) {
                 currentOrderView.getItems().addAll(userOrder.getPizzaArrayListStringed());
                 updateScreenTotals();
             }
-        } else if (chicagoSPOController != null) {
+        } else if (this.chicagoSPOController != null) {
             userOrder = chicagoSPOController.getUserOrder();
             if (userOrder != null) {
                 currentOrderView.getItems().addAll(userOrder.getPizzaArrayListStringed());
@@ -94,9 +94,7 @@ public class CurrentOrderController {
             FXMLLoader loader = new FXMLLoader(ChicagoSPOController.class.getResource("Main-view.fxml"));
             root = loader.load();
             MainController mainController = loader.getController();
-
             mainController.initialize(this, chicagoSPOController, newYorkSPOController);
-
             stage = (Stage) mainPane.getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

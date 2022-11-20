@@ -21,7 +21,6 @@ import java.util.ArrayList;
  * @author Michael Israel, Kangwei Zhu.
  */
 public class StoreOrdersController {
-
     @FXML
     private Pane mainPane;
     @FXML
@@ -58,15 +57,15 @@ public class StoreOrdersController {
     public void initialize(CurrentOrderController currentOrderController, ChicagoSPOController chicagoSPOController,
                            NewYorkSPOController newYorkSPOController) {
         this.currentOrderController = currentOrderController;
-        if (currentOrderController != null) {
+        if (this.currentOrderController != null) {
             storeOrdersArrayList = currentOrderController.getStoreOrdersArrayList();
             updateComboBox();
         }
         this.chicagoSPOController = chicagoSPOController;
         this.newYorkSPOController = newYorkSPOController;
-        if (chicagoSPOController != null) {
+        if (this.chicagoSPOController != null) {
             userOrder = chicagoSPOController.getUserOrder();
-        } else if (newYorkSPOController != null) {
+        } else if (this.newYorkSPOController != null) {
             userOrder = newYorkSPOController.getUserOrder();
         }
     }
@@ -91,9 +90,7 @@ public class StoreOrdersController {
             FXMLLoader loader = new FXMLLoader(ChicagoSPOController.class.getResource("Main-view.fxml"));
             root = loader.load();
             MainController mainController = loader.getController();
-
             mainController.initialize(currentOrderController, chicagoSPOController, newYorkSPOController);
-
             stage = (Stage) mainPane.getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

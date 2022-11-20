@@ -68,14 +68,14 @@ public class NewYorkSPOController {
     public void initialize(CurrentOrderController currentOrderController, ChicagoSPOController chicagoSPOController,
                            NewYorkSPOController newYorkSPOController) {
         this.currentOrderController = currentOrderController;
-        if (currentOrderController != null) {
+        if (this.currentOrderController != null) {
             storeOrdersArrayList = currentOrderController.getStoreOrdersArrayList();
         }
         this.chicagoSPOController = chicagoSPOController;
         this.newYorkSPOController = newYorkSPOController;
-        if (chicagoSPOController != null) {
+        if (this.chicagoSPOController != null) {
             userOrder = chicagoSPOController.getUserOrder();
-        } else if (newYorkSPOController != null) {
+        } else if (this.newYorkSPOController != null) {
             userOrder = newYorkSPOController.getUserOrder();
         } else {
             userOrder = new Order();
@@ -100,9 +100,7 @@ public class NewYorkSPOController {
             FXMLLoader loader = new FXMLLoader(ChicagoSPOController.class.getResource("Main-view.fxml"));
             root = loader.load();
             MainController mainController = loader.getController();
-
             mainController.initialize(currentOrderController, chicagoSPOController, this);
-
             stage = (Stage) mainPane.getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -236,10 +234,10 @@ public class NewYorkSPOController {
             try {
                 FXMLLoader loader = new FXMLLoader(ChicagoSPOController.class.getResource("CurrentOrder-view.fxml"));
                 root = loader.load();
-                CurrentOrderController currentOrderController1 = loader.getController();
+                CurrentOrderController currentOrderController = loader.getController();
                 userOrder.getPizzaArrayList().add(pizza);
                 userOrder.getPizzaArrayListStringed().add(getPizzaInfo(pizza));
-                currentOrderController1.initialize(currentOrderController, chicagoSPOController, this);
+                currentOrderController.initialize(this.currentOrderController, chicagoSPOController, this);
                 stage = (Stage) mainPane.getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
@@ -264,6 +262,11 @@ public class NewYorkSPOController {
         return userOrder;
     }
 
+    /**
+     * Provide the service that instantiate the Flavor Chosen.
+     *
+     * @param pizza
+     */
     private void instantiateFlavorChosen(Pizza pizza) {
         if (pizza instanceof Deluxe) {
             Image deluxeImage = new Image(ChicagoSPOController.class.getResource("Photos/nyDeluxe.jpg").toString());

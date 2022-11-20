@@ -11,7 +11,6 @@ import java.util.ArrayList;
  * @author Michael Israel, Kangwei Zhu
  */
 public class StoreOrder implements Customizable {
-
     private ArrayList<Order> ordersArrayList;
 
     /**

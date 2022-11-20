@@ -36,10 +36,10 @@ public class MainController {
      * It is called to initialize controllers after its root element has been completely processed.
      *
      * @param currentOrderController The controller for currentOrder view.
-     * @param chiagoSPOController    The controller for chicagoSPO view.
+     * @param chicagoSPOController    The controller for chicagoSPO view.
      * @param newYorkSPOController   The controller for newYorkSPO view.
      */
-    public void initialize(CurrentOrderController currentOrderController, ChicagoSPOController chiagoSPOController,
+    public void initialize(CurrentOrderController currentOrderController, ChicagoSPOController chicagoSPOController,
                            NewYorkSPOController newYorkSPOController) {
         this.currentOrderController = currentOrderController;
         if (currentOrderController != null) {
@@ -63,8 +63,8 @@ public class MainController {
         try {
             FXMLLoader loader = new FXMLLoader(ChicagoSPOController.class.getResource("ChicagoSPO-view.fxml"));
             root = loader.load();
-            ChicagoSPOController chicagoSPOController1 = loader.getController();
-            chicagoSPOController1.initialize(currentOrderController, chicagoSPOController, newYorkSPOController);
+            ChicagoSPOController chicagoSPOController = loader.getController();
+            chicagoSPOController.initialize(currentOrderController, this.chicagoSPOController, newYorkSPOController);
             stage = (Stage) mainPane.getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -86,7 +86,7 @@ public class MainController {
             FXMLLoader loader = new FXMLLoader(NewYorkSPOController.class.getResource("NewYorkSPO-view.fxml"));
             root = loader.load();
             NewYorkSPOController newYorkSPOController = loader.getController();
-            newYorkSPOController.initialize(currentOrderController, chicagoSPOController, newYorkSPOController);
+            newYorkSPOController.initialize(currentOrderController, chicagoSPOController, this.newYorkSPOController);
             stage = (Stage) mainPane.getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -130,7 +130,7 @@ public class MainController {
             FXMLLoader loader = new FXMLLoader(CurrentOrderController.class.getResource("CurrentOrder-view.fxml"));
             root = loader.load();
             CurrentOrderController currentOrderController = loader.getController();
-            currentOrderController.initialize(currentOrderController, chicagoSPOController, newYorkSPOController);
+            currentOrderController.initialize(this.currentOrderController, chicagoSPOController, newYorkSPOController);
             stage = (Stage) mainPane.getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

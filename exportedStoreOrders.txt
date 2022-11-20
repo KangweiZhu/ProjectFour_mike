@@ -1,5 +1,14 @@
 Store Orders
 
 
-Order Number : 0
-Meatzza (New York Style - Hand Tossed), Sausage, Pepperoni, Beef, Ham, Large $19.99
+Order Number : 1
+BBQ Chicken (New York Style - Thin), BBQ Chicken, GreenPeppers, Provolone, Cheddar, Large $17.99
+
+Order Number : 2
+BBQ Chicken (Chicago Style - Pan), BBQ Chicken, GreenPeppers, Provolone, Cheddar, Large $17.99Build Your Own (Chicago Style - Pan), Medium $10.99
+
+Order Number : 4
+Meatzza (New York Style - Hand Tossed), Sausage, Pepperoni, Beef, Ham, Large $19.99Deluxe (New York Style - Brooklyn), Sausage, Pepperoni, GreenPeppers, Onions, Mushrooms, Large $18.99BBQ Chicken (Chicago Style - Pan), BBQ Chicken, GreenPeppers, Provolone, Cheddar, Large $17.99
+
+Order Number : 6
+Deluxe (New York Style - Brooklyn), Sausage, Pepperoni, GreenPeppers, Onions, Mushrooms, Large $18.99Deluxe (New York Style - Brooklyn), Sausage, Pepperoni, GreenPeppers, Onions, Mushrooms, Large $18.99BBQ Chicken (Chicago Style - Pan), BBQ Chicken, GreenPeppers, Provolone, Cheddar, Large $17.99
