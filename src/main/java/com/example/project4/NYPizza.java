@@ -8,11 +8,11 @@ import java.util.ArrayList;
  *
  * @author Michael Israel, Kangwei Zhu
  */
-public class NewYorkPizza implements PizzaFactory {
+public class NYPizza implements PizzaFactory {
     /**
      * Default constructor of NewYorkPizza class.
      */
-    public NewYorkPizza() {
+    public NYPizza() {
     }
 
     /**

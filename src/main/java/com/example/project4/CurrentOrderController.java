@@ -41,7 +41,7 @@ public class CurrentOrderController {
     private NewYorkSPOController newYorkSPOController;
     private Order userOrder;
     private CurrentOrderController currentOrderController;
-    private StoreOrder storeOrdersArrayList;
+    private StoreOrders storeOrdersArrayList;
     private Alert alertError = new Alert(Alert.AlertType.ERROR);
 
     /**
@@ -64,7 +64,7 @@ public class CurrentOrderController {
         if (this.currentOrderController != null) {
             storeOrdersArrayList = currentOrderController.getStoreOrdersArrayList();
         } else {
-            storeOrdersArrayList = new StoreOrder();
+            storeOrdersArrayList = new StoreOrders();
         }
         this.chicagoSPOController = chicagoSPOController;
         this.newYorkSPOController = newYorkSPOController;
@@ -161,10 +161,18 @@ public class CurrentOrderController {
      */
     @FXML
     private void clearOrder(ActionEvent event) {
-        currentOrderView.getItems().clear();
-        userOrder.getPizzaArrayList().clear();
-        userOrder.getPizzaArrayListStringed().clear();
-        updateScreenTotals();
+        if (userOrder == null) {
+            alertError.setContentText("No order made right now");
+            alertError.show();
+        } else {
+            currentOrderView.getItems().clear();
+            userOrder.getPizzaArrayList().clear();
+            userOrder.getPizzaArrayListStringed().clear();
+            ordernumberLabel.clear();
+            subtotalLabel.clear();
+            salestaxLabel.clear();
+            ordertotalLabel.clear();
+        }
     }
 
     /**
@@ -181,7 +189,7 @@ public class CurrentOrderController {
      *
      * @return The storeOrderArrayList.
      */
-    public StoreOrder getStoreOrdersArrayList() {
+    public StoreOrders getStoreOrdersArrayList() {
         return storeOrdersArrayList;
     }
 
@@ -191,7 +199,7 @@ public class CurrentOrderController {
     private void updateScreenTotals() {
         ordernumberLabel.setText(String.valueOf(userOrder.getOrderNumber()));
         subtotalLabel.setText("$" + String.format("%.2f", userOrder.getSubTotal()));
-        salestaxLabel.setText("$" + String.format("%.2f", userOrder.getTaxRate() * 100));
+        salestaxLabel.setText("$" + String.format("%.2f", userOrder.getTaxRate() * userOrder.getOrderTotal()));
         ordertotalLabel.setText("$" + String.format("%.2f", userOrder.getOrderTotal()));
     }
 }

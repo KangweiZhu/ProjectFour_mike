@@ -129,6 +129,6 @@ public class Order implements Customizable {
      * @return The tax rate.
      */
     public double getTaxRate() {
-        return .006625;
+        return (6.625 / 100);
     }
 }

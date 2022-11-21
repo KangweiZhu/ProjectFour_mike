@@ -49,7 +49,7 @@ public class ChicagoSPOController {
     private NewYorkSPOController newYorkSPOController;
     private Order userOrder;
     private CurrentOrderController currentOrderController;
-    private StoreOrder storeOrdersArrayList;
+    private StoreOrders storeOrdersArrayList;
     private Alert alertError = new Alert(Alert.AlertType.ERROR);
 
     /**

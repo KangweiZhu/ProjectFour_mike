@@ -1,14 +1,23 @@
 Store Orders
 
 
-Order Number : 1
-BBQ Chicken (New York Style - Thin), BBQ Chicken, GreenPeppers, Provolone, Cheddar, Large $17.99
+Order Number : 0   Order Total: 19.181837499999997   Order taxRate: 0.06625
+    -BBQ Chicken (Chicago Style - Pan), BBQ Chicken, GreenPeppers, Provolone, Cheddar, Large $17.99
 
-Order Number : 2
-BBQ Chicken (Chicago Style - Pan), BBQ Chicken, GreenPeppers, Provolone, Cheddar, Large $17.99Build Your Own (Chicago Style - Pan), Medium $10.99
 
-Order Number : 4
-Meatzza (New York Style - Hand Tossed), Sausage, Pepperoni, Beef, Ham, Large $19.99Deluxe (New York Style - Brooklyn), Sausage, Pepperoni, GreenPeppers, Onions, Mushrooms, Large $18.99BBQ Chicken (Chicago Style - Pan), BBQ Chicken, GreenPeppers, Provolone, Cheddar, Large $17.99
+Order Number : 1   Order Total: 19.181837499999997   Order taxRate: 0.06625
+    -BBQ Chicken (Chicago Style - Pan), BBQ Chicken, GreenPeppers, Provolone, Cheddar, Large $17.99
 
-Order Number : 6
-Deluxe (New York Style - Brooklyn), Sausage, Pepperoni, GreenPeppers, Onions, Mushrooms, Large $18.99Deluxe (New York Style - Brooklyn), Sausage, Pepperoni, GreenPeppers, Onions, Mushrooms, Large $18.99BBQ Chicken (Chicago Style - Pan), BBQ Chicken, GreenPeppers, Provolone, Cheddar, Large $17.99
+
+Order Number : 2   Order Total: 13.8505875   Order taxRate: 0.06625
+    -Build Your Own (Chicago Style - Pan), Large $12.99
+
+
+Order Number : 3   Order Total: 21.314337499999997   Order taxRate: 0.06625
+    -Meatzza (Chicago Style - Stuffed), Sausage, Pepperoni, Beef, Ham, Large $19.99
+
+
+Order Number : 4   Order Total: 40.496174999999994   Order taxRate: 0.06625
+    -BBQ Chicken (New York Style - Thin), BBQ Chicken, GreenPeppers, Provolone, Cheddar, Large $17.99
+    -Meatzza (Chicago Style - Stuffed), Sausage, Pepperoni, Beef, Ham, Large $19.99
+

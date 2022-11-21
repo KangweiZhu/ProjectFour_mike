@@ -10,14 +10,14 @@ import java.util.ArrayList;
  *
  * @author Michael Israel, Kangwei Zhu
  */
-public class StoreOrder implements Customizable {
+public class StoreOrders implements Customizable {
     private ArrayList<Order> ordersArrayList;
 
     /**
      * Default constructor.
      * It initializes the orderArrayList.
      */
-    public StoreOrder() {
+    public StoreOrders() {
         this.ordersArrayList = new ArrayList<>();
     }
 
@@ -27,7 +27,7 @@ public class StoreOrder implements Customizable {
      *
      * @param ordersArrayList The ordersArrayList that is going to be set.
      */
-    public StoreOrder(ArrayList<Order> ordersArrayList) {
+    public StoreOrders(ArrayList<Order> ordersArrayList) {
         this.ordersArrayList = ordersArrayList;
     }
 
@@ -80,9 +80,10 @@ public class StoreOrder implements Customizable {
             BufferedWriter writer = new BufferedWriter(new FileWriter("exportedStoreOrders.txt"));
             writer.write("Store Orders\n\n");
             for (Order order : this.ordersArrayList) {
-                writer.write("\nOrder Number : " + order.getOrderNumber() + "\n");
+                writer.write("\nOrder Number : " + order.getOrderNumber() + "   Order Total: " +
+                        order.getOrderTotal() + "   Order taxRate: " +order.getTaxRate() + "\n");
                 for (String string : order.getPizzaArrayListStringed()) {
-                    writer.write(string);
+                    writer.write("    -"  + string + "\n");
                 }
                 writer.write("\n");
             }
@@ -91,5 +92,4 @@ public class StoreOrder implements Customizable {
             e.printStackTrace();
         }
     }
-
 }

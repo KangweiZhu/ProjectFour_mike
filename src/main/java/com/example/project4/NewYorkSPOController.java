@@ -42,13 +42,13 @@ public class NewYorkSPOController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private PizzaFactory pizzaFactory = new NewYorkPizza();
+    private PizzaFactory pizzaFactory = new NYPizza();
     private Pizza pizza;
     private ChicagoSPOController chicagoSPOController;
     private NewYorkSPOController newYorkSPOController;
     private Order userOrder;
     private CurrentOrderController currentOrderController;
-    private StoreOrder storeOrdersArrayList;
+    private StoreOrders storeOrdersArrayList;
     private Alert alertError = new Alert(Alert.AlertType.ERROR);
 
     /**

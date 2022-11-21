@@ -39,6 +39,9 @@ public class BuildYourOwn extends Pizza {
             if (!getAvailableToppings().contains(obj)) {
                 return false;
             } else {
+                if (getSelectedToppings().size() == 7){
+                    return false;
+                }
                 this.getSelectedToppings().add((Topping) obj);
                 return true;
             }

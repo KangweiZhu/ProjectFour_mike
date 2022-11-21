@@ -23,7 +23,7 @@ public class MainController {
     private NewYorkSPOController newYorkSPOController;
     private CurrentOrderController currentOrderController;
     private Order userOrder;
-    private StoreOrder storeOrdersArrayList;
+    private StoreOrders storeOrdersArrayList;
 
     /**
      * Default constructor of MainController class
