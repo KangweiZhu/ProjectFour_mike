@@ -95,7 +95,7 @@ public class ChicagoSPOController {
     /**
      * After the back button is click, it will jump to the previous page, which is the main page.
      *
-     * @param event
+     * @param event The event that represent some type of Action
      */
     @FXML
     private void goToHomeScreen(ActionEvent event) {
