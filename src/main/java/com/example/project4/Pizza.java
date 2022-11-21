@@ -26,7 +26,7 @@ public abstract class Pizza implements Customizable {
      * Parameterized constructor of Pizza abstract class.
      *
      * @param toppings The ArrayList that stores every topping.
-     * @param crust    The crust of one specific style&flavor Pizza.
+     * @param crust    The crust of one specific style/flavor Pizza.
      * @param size     The size of pizza.
      */
     public Pizza(ArrayList<Topping> toppings, Crust crust, Size size) {
