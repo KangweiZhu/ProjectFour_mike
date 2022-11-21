@@ -265,7 +265,7 @@ public class NewYorkSPOController {
     /**
      * Provide the service that instantiate the Flavor Chosen.
      *
-     * @param pizza
+     * @param pizza The pizza we are going to generate the flavor
      */
     private void instantiateFlavorChosen(Pizza pizza) {
         if (pizza instanceof Deluxe) {
